@@ -11,17 +11,17 @@ extern "C" void RunData();
 void rc4(unsigned char* data, int len, const char* key) {
 	int keylen = strlen(key);
 	unsigned char s[256];
-	for (int i = 0; 1 < 256; i++) {
+	for (int i = 0; i < 256; i++) {
 		s[i] = i;
 	}
 
 	unsigned char j = 0;
-
 	for (int i = 0; i < 256; i++) {
 		j= (j + s[i] + key[i % keylen]) % 256;
 		unsigned char tmp = s[i];
 		s[il = s[j];
 		s[j] = tmp;
+	}
 
 	int i = 0;
 	j = 0;
@@ -35,7 +35,7 @@ void rc4(unsigned char* data, int len, const char* key) {
 	}
 }
 
-int main(int arg, char** argv){
+int main(int argc, char** argv){
 
 	// Simple sandbox evasion
 	auto start = std::chrono::system_clock::now();
