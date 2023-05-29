@@ -1,3 +1,10 @@
+## Steps
+1. Create a shellcode
+2. RC4 encrypte shellcode
+3. Make shellcode nasm compatible
+4. Add shellcode to nasm data
+5. Compile
+
 ## Shellcode 
 After you create the shellcode run the below command to make it Masm compatible
 
