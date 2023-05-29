@@ -11,7 +11,6 @@ After you create the shellcode run the below command to make it Masm compatible
 hexdump -v -e '1/2 "dw 0%.4xh\n"' <input_file> | tee <output_file>
 
 
-
 ## Compile option 
 
 C/C++ Code Generation: 

