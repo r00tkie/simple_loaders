@@ -27,12 +27,12 @@ if __name__ == "__main__":
 		exit (0)
 
 	key = sys.argv[1]
-	filename = sys.arqv[2]
+	filename = sys.argv[2]
 
 	with open(filename, 'rb') as f:
 		data = f.read ()
 
-	encrypted = rC4(data, key. encode ( ))
+	encrypted = rc4(data, key. encode ( ))
 
 	with open(f"(filename).enc", 'wb') as f:
 		f.write (encrypted)
