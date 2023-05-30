@@ -28,12 +28,12 @@ if __name__ == "__main__":
 	filename = sys.argv[2]
 
 	with open(filename, 'rb') as f:
-		data = f.read ()
+		data = f.read()
 
-	encrypted = rc4(data, key.encode ( ))
+	encrypted = rc4(data, key.encode())
 
 	with open(f"{filename}.enc", 'wb') as f:
-		f.write (encrypted)
+		f.write(encrypted)
 
 	print(f"Written {filename}.enc")
 	
