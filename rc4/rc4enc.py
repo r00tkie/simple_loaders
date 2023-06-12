@@ -35,5 +35,5 @@ if __name__ == "__main__":
 	with open(f"{filename}.enc", 'wb') as f:
 		f.write(encrypted)
 
-	print(f"Written {filename}.enc")
+	print(f"+++++ Data written {filename}.enc +++++")
 	

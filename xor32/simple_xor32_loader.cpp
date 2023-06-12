@@ -41,3 +41,4 @@ int main(int argc, char** argv) {
     VirtualProtect((LPVOID)&RunData, len, oldProtect, &oldProtect);
     RunData();
 }
+

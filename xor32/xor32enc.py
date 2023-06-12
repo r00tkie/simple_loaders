@@ -1,4 +1,5 @@
 import sys
+import time
 
 # XOR32 Encode 
 def xor32_encode(data, key):
@@ -22,10 +23,19 @@ if __name__ == "__main__":
 	with open(filename, 'rb') as f:
 		data = f.read()
 
-	# Encode the data
+	# XOR32 Encode the data
 	encoded_data = xor32_encode(data, key)
 
+
+	# Write data to file
 	with open(f"{filename}.enc", 'wb') as f:
 		f.write (encoded_data)
 
-	print(f"Written {filename}.enc")
+	print(f"Data Written: \n")
+	print(f"##### XOR32 Encoded Data Starter ##### \n")
+	
+	time.sleep(1)
+
+	#print(f"{encoded_data}" + f"\n")
+	print(f"##### XOR32 Encoded Data Ends ##### \n")
+	print(f"+++++ Data is written at {filename}.enc +++++ \n")
