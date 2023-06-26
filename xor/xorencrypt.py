@@ -1,8 +1,3 @@
-# Red Team Operator course code template
-# payload encryption with XOR
-#
-# author: reenz0h (twitter: @sektor7net)
-
 import sys
 
 KEY = "mysecretkeee"
@@ -33,4 +28,5 @@ except:
 
 
 ciphertext = xor(plaintext, KEY)
-print('{ 0x' + ', 0x'.join(hex(ord(x))[2:] for x in ciphertext) + ' };')
+print('XORkey[] = { 0x' + ', 0x'.join(hex(ord(x))[2:] for x in KEY) + ' };')
+print('payload[] = { 0x' + ', 0x'.join(hex(ord(x))[2:] for x in ciphertext) + ' };')

